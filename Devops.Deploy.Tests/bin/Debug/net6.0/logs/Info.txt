@@ -1,0 +1,17 @@
+2023-05-27 18:14:51.0054|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:18:40.9006|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:20:31.3686|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:30:51.2913|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:15.0101|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:15.3689|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:15.6976|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:16.0258|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:16.3695|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:16.7138|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:17.0578|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:17.3861|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:17.7295|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:18.0735|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:18.3993|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:18.7295|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup
+2023-05-27 18:31:19.0734|INFO|Devops.Deploy.Tests.InstantiationTests|Test Startup

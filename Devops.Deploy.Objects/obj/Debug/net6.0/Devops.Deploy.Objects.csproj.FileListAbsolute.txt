@@ -1,0 +1,15 @@
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\bin\Debug\net6.0\Devops.Deploy.Objects.deps.json
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\bin\Debug\net6.0\Devops.Deploy.Objects.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\bin\Debug\net6.0\Devops.Deploy.Objects.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\bin\Debug\net6.0\Devops.Deploy.Interfaces.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\bin\Debug\net6.0\Devops.Deploy.Interfaces.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\obj\Debug\net6.0\Devops.Deploy.Objects.csproj.AssemblyReference.cache
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\obj\Debug\net6.0\Devops.Deploy.Objects.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\obj\Debug\net6.0\Devops.Deploy.Objects.AssemblyInfoInputs.cache
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\obj\Debug\net6.0\Devops.Deploy.Objects.AssemblyInfo.cs
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\obj\Debug\net6.0\Devops.Deploy.Objects.csproj.CoreCompileInputs.cache
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\obj\Debug\net6.0\Devops.Deploy.Objects.csproj.CopyComplete
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\obj\Debug\net6.0\Devops.Deploy.Objects.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\obj\Debug\net6.0\refint\Devops.Deploy.Objects.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\obj\Debug\net6.0\Devops.Deploy.Objects.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Objects\obj\Debug\net6.0\ref\Devops.Deploy.Objects.dll

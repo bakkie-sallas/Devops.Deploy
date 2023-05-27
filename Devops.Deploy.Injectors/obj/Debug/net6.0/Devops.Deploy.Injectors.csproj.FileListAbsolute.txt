@@ -1,0 +1,17 @@
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Devops.Deploy.Injectors.deps.json
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Devops.Deploy.Injectors.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Devops.Deploy.Injectors.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Devops.Deploy.Interfaces.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Devops.Deploy.Objects.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Devops.Deploy.Interfaces.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Devops.Deploy.Objects.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\Devops.Deploy.Injectors.csproj.AssemblyReference.cache
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\Devops.Deploy.Injectors.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\Devops.Deploy.Injectors.AssemblyInfoInputs.cache
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\Devops.Deploy.Injectors.AssemblyInfo.cs
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\Devops.Deploy.Injectors.csproj.CoreCompileInputs.cache
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\Devops.Deploy.Injectors.csproj.CopyComplete
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\Devops.Deploy.Injectors.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\refint\Devops.Deploy.Injectors.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\Devops.Deploy.Injectors.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\ref\Devops.Deploy.Injectors.dll
