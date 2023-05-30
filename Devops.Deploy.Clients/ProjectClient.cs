@@ -30,7 +30,7 @@ namespace Devops.Deploy.Clients
 
         public void AssignReleasesToRelevantProject(IReleaseClient ReleaseClient, int MaximumReleases = -1)
         {
-            projects.ForEach(project => { project.AssignReleases(ReleaseClient.Releases.Limit(MaximumReleases)); });
+            projects.ForEach(project => { project.AssignReleases(ReleaseClient.Releases.Limit(MaximumReleases, Logger)); });
         }
         
     }

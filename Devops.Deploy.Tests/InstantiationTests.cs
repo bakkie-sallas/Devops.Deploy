@@ -21,6 +21,7 @@ namespace Devops.Deploy.Tests
         IDeploymentClient DeploymentClient;
         IProjectClient ProjectClient;
         IEnvironmentClient EnvironmentClient;
+        IInstanceClient InstanceClient;
 
 
 
@@ -34,42 +35,57 @@ namespace Devops.Deploy.Tests
             Logger.Info("Starting up Tests");
 
 
-            TransformClient= DevopsDeployKernel.Get<ITransformClient>();
+            TransformClient = DevopsDeployKernel.Get<ITransformClient>();
+
             ReleaseClient = DevopsDeployKernel.Get<IReleaseClient>();
-             DeploymentClient = DevopsDeployKernel.Get<IDeploymentClient>();
-             ProjectClient = DevopsDeployKernel.Get<IProjectClient>();
-             EnvironmentClient = DevopsDeployKernel.Get<IEnvironmentClient>();
+            DeploymentClient = DevopsDeployKernel.Get<IDeploymentClient>();
+            ProjectClient = DevopsDeployKernel.Get<IProjectClient>();
+            EnvironmentClient = DevopsDeployKernel.Get<IEnvironmentClient>();
+
+            InstanceClient = DevopsDeployKernel.Get<IInstanceClient>();
 
             //arrange for releases
-            Logger.Info("arrange for releases: Loading List");
+            
             using StreamReader releasesFile = File.OpenText("JSONSource/Releases.json");
+            var releasesJSON = releasesFile.ReadToEnd();
 
-            ReleaseClient.AssignReleases(releasesFile.ReadToEnd(),TransformClient.Transform);
+            Logger.Info("arrange for releases: Loading List");
+            ReleaseClient.AssignReleases(releasesJSON, TransformClient.Transform);
 
-            Logger.Info("arrange for deployments: Loading List");
+            
             using StreamReader deploymentsFile = File.OpenText("JSONSource/Deployments.json");
-            DeploymentClient.AssignDeployments(deploymentsFile.ReadToEnd(), TransformClient.Transform);
+            var deploymentsJSON = deploymentsFile.ReadToEnd();
+           
+            Logger.Info("arrange for deployments: Loading List");
+            DeploymentClient.AssignDeployments(deploymentsJSON, TransformClient.Transform);
+
+            
+            using StreamReader environmentsFile = File.OpenText("JSONSource/Environments.json");
+            var environmentJSON = environmentsFile.ReadToEnd();
 
             Logger.Info("arrange for Environments: Loading List");
-            using StreamReader environmentsFile = File.OpenText("JSONSource/Environments.json");
-            EnvironmentClient.AssignEnvironments(environmentsFile.ReadToEnd(), TransformClient.Transform);
+            EnvironmentClient.AssignEnvironments(environmentJSON, TransformClient.Transform);
+
+            
+            using StreamReader projectFile = File.OpenText("JSONSource/Projects.json");
+            var projectJSON = projectFile.ReadToEnd();
 
             Logger.Info("arrange for Projects: Loading List");
-            using StreamReader projectFile = File.OpenText("JSONSource/Projects.json");
-            ProjectClient.AssignProjects(projectFile.ReadToEnd(), TransformClient.Transform);
-
-
+            ProjectClient.AssignProjects(projectJSON, TransformClient.Transform);
 
             ReleaseClient.AssignDeploymentsToRelevantRelease(DeploymentClient.SortDeployments()).SortReleases();
             ProjectClient.AssignReleasesToRelevantProject(ReleaseClient.SortReleases());
             EnvironmentClient.AssignDeploymentsToRelevantEnvironment(DeploymentClient.SortDeployments(), ReleaseClient.SortReleases());
 
-
+            InstanceClient.LoadJson(deploymentsJSON,projectJSON,releasesJSON,environmentJSON);
 
             //Loaded Lists
 
         }
-
+        private void LoadSeparateClients()
+        { 
+            
+        }
 
 
 
@@ -80,7 +96,7 @@ namespace Devops.Deploy.Tests
 
             //Releases cannot be null
             //Value to return Release Count
-            
+
             Assert.IsNotNull(ProjectClient.Projects);
             Assert.IsNotNull(ProjectClient.Projects.FirstOrDefault().Releases);
             Assert.IsNotNull(ProjectClient.Projects.FirstOrDefault().RealeaseCount);
@@ -116,7 +132,7 @@ namespace Devops.Deploy.Tests
         public void When_Deployment_Initialised_Must_Have_Environment_And_ReleaseScope()
         {
             //Action to load applicable dpeloyments for every release
-            ReleaseClient.Releases.ForEach(release => release.AssignDeployment( DeploymentClient.Deployments));
+            ReleaseClient.Releases.ForEach(release => release.AssignDeployment(DeploymentClient.Deployments));
 
 
             //looking for any deployment that has been assigned to a release and matches an environment.
@@ -155,7 +171,7 @@ namespace Devops.Deploy.Tests
         public void When_Release_Instantiated_And_Deployment_Added_Then_Has_Been_Released()
         {
             //Loading Deployments. A deployments need Environments to be Valid
-            ReleaseClient.Releases.ForEach(release => release.AssignDeployment( DeploymentClient.Deployments).ValidateAssignedDeployments(EnvironmentClient.Environments));
+            ReleaseClient.Releases.ForEach(release => release.AssignDeployment(DeploymentClient.Deployments).ValidateAssignedDeployments(EnvironmentClient.Environments));
 
 
             //6 releases have deployments. Deployment 4 is assigned to release 2.It mentions environment 3, which is not in the list of Environments provided. We can not 
@@ -166,7 +182,7 @@ namespace Devops.Deploy.Tests
         public void When_Release_Instantiated_And_NO_Deployment_Added_Then_Has_NOT_Been_Released()
         {
             //Loading Deployments. A deployments need Environments to be Valid
-            ReleaseClient.Releases.ForEach(release => release.AssignDeployment( DeploymentClient.Deployments).ValidateAssignedDeployments(EnvironmentClient.Environments));
+            ReleaseClient.Releases.ForEach(release => release.AssignDeployment(DeploymentClient.Deployments).ValidateAssignedDeployments(EnvironmentClient.Environments));
 
 
             //Deployment requires the release and the environment
@@ -193,7 +209,7 @@ namespace Devops.Deploy.Tests
 
             //Deployments cannot be null
             //Value to return Deployment Count
-            Assert.IsFalse(EnvironmentClient.Environments.Any(environment=>environment.Deployments==null));
+            Assert.IsFalse(EnvironmentClient.Environments.Any(environment => environment.Deployments == null));
         }
 
         [Test]
@@ -203,7 +219,7 @@ namespace Devops.Deploy.Tests
 
             //Deployments cannot be null
             //Value to return Deployment Count
-            Assert.IsFalse(ProjectClient.Projects.Any(project => project.Releases.Any(release=>release.Deployments== null)));
+            Assert.IsFalse(ProjectClient.Projects.Any(project => project.Releases.Any(release => release.Deployments == null)));
         }
 
 
@@ -221,8 +237,8 @@ namespace Devops.Deploy.Tests
         {
             int NumberReleasesToTake = 5;
 
-            EnvironmentClient.AssignDeploymentsToRelevantEnvironment(DeploymentClient,ReleaseClient, NumberReleasesToTake);
-            
+            EnvironmentClient.AssignDeploymentsToRelevantEnvironment(DeploymentClient, ReleaseClient, NumberReleasesToTake);
+
             var releasesAssigned = EnvironmentClient.Environments.SelectMany(environment => environment.Releases);
             Assert.Greater(GetApplicableDate(releasesAssigned.FirstOrDefault()), GetApplicableDate(releasesAssigned.LastOrDefault()));
 
@@ -232,20 +248,18 @@ namespace Devops.Deploy.Tests
             Assert.That(MaximumReleasesAssignedTOEnvironment, Is.EqualTo(NumberReleasesToTake));
         }
 
-       
+
         [Test]
         //For each **project**, keep `n` **releases** that have most recently been deployed, where `n` is the number of releases to keep. 
         public void When_Project_Instantiated_N_Releases_Must_Be_Sorted_From_Most_Recent()
         {
             int NumberReleasesToTake = 5;
 
-            ProjectClient.AssignReleasesToRelevantProject(ReleaseClient,NumberReleasesToTake);
-           
+            ProjectClient.AssignReleasesToRelevantProject(ReleaseClient, NumberReleasesToTake);
             var releasesAssigned = ProjectClient.Projects.SelectMany(project => project.Releases);
             Assert.GreaterOrEqual(GetApplicableDate(releasesAssigned.FirstOrDefault()), GetApplicableDate(releasesAssigned.LastOrDefault()));
 
             var MaximumReleasesAssignedToProject = ProjectClient.Projects.SelectMany(project => project.Releases).Distinct().Count();
-
             Assert.That(MaximumReleasesAssignedToProject, Is.EqualTo(NumberReleasesToTake));
         }
 
@@ -256,24 +270,21 @@ namespace Devops.Deploy.Tests
         {
             //Requires Method to Load specific amount of releases
             //Note That N is shared between Projects and Environments
-            //can probably share a static list of releases
-            Assert.IsNotNull(null);
-        }
+            int NumberReleasesToTake = 4;
+            InstanceClient.WithReleaseLimiter(NumberReleasesToTake);
 
-        [Test]
-        //note: A **release** is considered to have "been deployed" if the release _has one or more_ **deployments**.
-        public void When_Release_Instantiated_With_Deployments_Is_Deployed()
-        {
-            //Requires IsDeployed boolean
-            Assert.IsNotNull(null);
-        }
 
-        [Test]
-        //note: A **release** is considered to have "been deployed" if the release _has one or more_ **deployments**.
-        public void When_Release_Instantiated_WithOut_Deployments_Is_Not_Deployed()
-        {
-            //Requires IsDeployed boolean
-            Assert.IsNotNull(null);
+            var releasesAssigned = InstanceClient.EnvironmentClient.Environments.SelectMany(environment => environment.Releases);
+            Assert.Greater(GetApplicableDate(releasesAssigned.FirstOrDefault()), GetApplicableDate(releasesAssigned.LastOrDefault()));
+
+            var MaximumReleasesAssignedTOEnvironment = InstanceClient.EnvironmentClient.Environments.Max(environment => environment.Releases.Count());
+            Assert.That(MaximumReleasesAssignedTOEnvironment, Is.EqualTo(NumberReleasesToTake));
+
+            releasesAssigned = InstanceClient.ProjectClient.Projects.SelectMany(project => project.Releases);
+            Assert.GreaterOrEqual(GetApplicableDate(releasesAssigned.FirstOrDefault()), GetApplicableDate(releasesAssigned.LastOrDefault()));
+
+            var MaximumReleasesAssignedToProject = InstanceClient.ProjectClient.Projects.SelectMany(project => project.Releases).Distinct().Count();
+            Assert.That(MaximumReleasesAssignedToProject, Is.EqualTo(NumberReleasesToTake));
         }
 
 

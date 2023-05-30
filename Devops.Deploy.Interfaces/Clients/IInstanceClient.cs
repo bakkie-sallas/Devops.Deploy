@@ -8,11 +8,12 @@ namespace Devops.Deploy.Interfaces.Clients
         public IProjectClient ProjectClient { get; set; }
         public IReleaseClient ReleaseClient { get; set; }
         public IEnvironmentClient EnvironmentClient { get; set; }
+        public ITransformClient TransformClient { get; set; }
 
-        public string DeploymentJSON { get; set; }
-        public string ProjectJSON { get; set; }
-        public string ReleaseJSON { get; set; }
-        public string EnvironmentJSON { get; set; }
+        public IInstanceClient LoadJson(string GeneralJSON);
+
+        public IInstanceClient LoadJson(string DeploymentJSON = null, string ProjectJSON = null, string ReleaseJSON = null, string EnvironmentJSON = null);
+        public IInstanceClient WithReleaseLimiter(int MaximumReleases = -1);
 
     }
 }

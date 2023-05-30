@@ -1,28 +1,77 @@
-﻿using Devops.Deploy.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Devops.Deploy.Interfaces.Clients;
+using Thirdparty.Interfaces;
 
 namespace Devops.Deploy.Clients
 {
-    public static class InstanceClient: IInstanceClient
+    public  class InstanceClient : IInstanceClient
     {
-        public static List<IRelease> Limit(this List<IRelease> Releases, int NumberOfReleases)
+        public IDeploymentClient DeploymentClient { get; set; }
+        public IProjectClient ProjectClient { get; set; }
+        public IReleaseClient ReleaseClient { get; set; }
+        public IEnvironmentClient EnvironmentClient { get; set; }
+        public ITransformClient TransformClient { get; set; }
+        private string deploymentJSON;
+        private string projectJSON;
+        private string releaseJSON;
+        private string environmentJSON;
+        private string generalJSON;
+
+        private int releaseLimiter;
+        public ILogger Logger { get; set; }
+
+        public InstanceClient(ILogger Logger, ITransformClient TransformClient,IDeploymentClient DeploymentClient, IProjectClient ProjectClient, IReleaseClient ReleaseClient, IEnvironmentClient EnvironmentClient)
         {
-            NumberOfReleases = NumberOfReleases < 0 || NumberOfReleases > Releases.Count() ? Releases.Count() : NumberOfReleases;
-            return Releases.OrderByDescending(releases=>releases.DeploymentOrCreated).Take(NumberOfReleases).ToList();
+            this.Logger = Logger;
+            this.DeploymentClient = DeploymentClient;
+            this.ProjectClient = ProjectClient;
+            this.EnvironmentClient= EnvironmentClient;
+            this.ReleaseClient = ReleaseClient;
+            this.TransformClient = TransformClient;
         }
 
-        public static List<IDeployment> Limit(this List<IDeployment> Deployments, int NumberOfReleases)
+        public IInstanceClient LoadJson(string GeneralJSON)
         {
-            var ReleaseIds = Deployments.OrderByDescending(deployment => deployment.DeployedAt).Select(deployment => deployment.ReleaseId).Distinct();
-            NumberOfReleases = NumberOfReleases < 0 || NumberOfReleases > ReleaseIds.Count() ? ReleaseIds.Count() : NumberOfReleases;
-
-            return Deployments.Where(deployment => ReleaseIds.Take(NumberOfReleases).Contains(deployment.ReleaseId)).ToList();
+            InitAll();
+            return this;
         }
 
+        public IInstanceClient LoadJson(string DeploymentJSON = null, string ProjectJSON = null, string ReleaseJSON = null, string EnvironmentJSON = null)
+        {
+            deploymentJSON= DeploymentJSON;
+            projectJSON= ProjectJSON;
+            releaseJSON= ReleaseJSON;
+            environmentJSON= EnvironmentJSON;
 
+            InitAll();
+            return this;
+        }
+        public IInstanceClient WithReleaseLimiter(int MaximumReleases = -1)
+        {
+            releaseLimiter= MaximumReleases;
+            ProjectClient.AssignReleasesToRelevantProject(ReleaseClient, releaseLimiter);
+            EnvironmentClient.AssignDeploymentsToRelevantEnvironment(DeploymentClient, ReleaseClient, MaximumReleases);
+            return this;
+        }
+
+        private void InitAll()
+        {
+            //arrange for releases
+            Logger.Info("arrange for releases: Loading List");
+            ReleaseClient.AssignReleases(releaseJSON, TransformClient.Transform);
+
+            Logger.Info("arrange for deployments: Loading List");
+            DeploymentClient.AssignDeployments(deploymentJSON, TransformClient.Transform);
+
+            Logger.Info("arrange for Environments: Loading List");
+            EnvironmentClient.AssignEnvironments(environmentJSON, TransformClient.Transform);
+
+            Logger.Info("arrange for Projects: Loading List");
+            ProjectClient.AssignProjects(projectJSON, TransformClient.Transform);
+
+
+            ReleaseClient.AssignDeploymentsToRelevantRelease(DeploymentClient.SortDeployments()).SortReleases();
+            ProjectClient.AssignReleasesToRelevantProject(ReleaseClient.SortReleases());
+            EnvironmentClient.AssignDeploymentsToRelevantEnvironment(DeploymentClient.SortDeployments(), ReleaseClient.SortReleases());
+        }
     }
 }

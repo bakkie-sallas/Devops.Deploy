@@ -43,7 +43,7 @@ namespace Devops.Deploy.Clients
        
         public List<IRelease> GetLatest_N(List<IRelease> Releases,int MaximumReleases)
         {
-            releases = releases.Limit(MaximumReleases);
+            releases = releases.Limit(MaximumReleases, Logger);
             return releases;
         }
 

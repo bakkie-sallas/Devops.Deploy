@@ -28,7 +28,7 @@ namespace Devops.Deploy.Clients
         }
         public void AssignDeploymentsToRelevantEnvironment(IDeploymentClient DeploymentClient, IReleaseClient ReleaseClient, int MaximumReleases = -1)
         {
-            environments.ForEach(environment => { environment.AssignDeployments(DeploymentClient.Deployments.Limit(MaximumReleases)).AssignReleases(ReleaseClient.Releases); });
+            environments.ForEach(environment => { environment.AssignDeployments(DeploymentClient.Deployments.Limit(MaximumReleases,Logger)).AssignReleases(ReleaseClient.Releases); });
         }
 
     }
