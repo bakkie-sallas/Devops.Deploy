@@ -15,8 +15,6 @@ namespace Devops.Deploy.Clients
         private List<IRelease> releases;
         public ILogger Logger { get; set; }
 
-
-
         public ReleaseClient(ILogger Logger)
         {
             this.Logger = Logger;
@@ -27,24 +25,26 @@ namespace Devops.Deploy.Clients
             return this;
         }
 
-        public IReleaseClient AssignDeploymentsToRelevantRelease(List<IDeployment> Deployments)
+        public IReleaseClient AssignDeploymentsToRelevantRelease(IDeploymentClient DeploymentClient)
         {
             if (releases == null)
                 throw new Exception("There are no releases to assign the deployments to");
 
-            releases.ForEach(release => { release.AssignDeployment(Deployments); });
+            releases.ForEach(release => { release.AssignDeployment(DeploymentClient.Deployments); });
             return this;
         }
 
         public IReleaseClient SortReleases()
         {
-            releases = releases.OrderByDescending(release => release.Deployments.FirstOrDefault()).ToList();
+            releases = releases.OrderByDescending(release => release.DeploymentOrCreated).ToList();
             return this;
         }
-        public IReleaseClient GetLatest_N(int MaximumReleases)
+
+       
+        public List<IRelease> GetLatest_N(List<IRelease> Releases,int MaximumReleases)
         {
-            releases = releases.Take(MaximumReleases).ToList();
-            return this;
+            releases = releases.Limit(MaximumReleases);
+            return releases;
         }
 
     }

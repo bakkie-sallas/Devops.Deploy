@@ -6,8 +6,8 @@ namespace Devops.Deploy.Interfaces.Clients
     {
         public List<IRelease> Releases { get; }
         public IReleaseClient AssignReleases(string json, ITransform Transform);
-        IReleaseClient AssignDeploymentsToRelevantRelease(List<IDeployment> Deployments);
+        IReleaseClient AssignDeploymentsToRelevantRelease(IDeploymentClient DeploymentClient);
         public IReleaseClient SortReleases();
-        public IReleaseClient GetLatest_N(int MaximumReleases);
+        public List<IRelease> GetLatest_N(List<IRelease> Releases, int MaximumReleases);
     }
 }

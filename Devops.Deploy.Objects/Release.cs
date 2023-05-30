@@ -19,6 +19,10 @@ namespace Devops.Deploy.Objects
         public bool HasBeenReleased => Deployments.Any() && Deployments.All(deployment => deployment.HasValidEnvironment);
 
         public ILogger Logger { get; }
+        public DateTime DeploymentOrCreated { get => this.Deployments!=null && this.Deployments.Any() == true ?
+                                                this.Deployments.FirstOrDefault().DeployedAt :
+                                                this.Created;
+                                            }
 
         public Release()
         {
@@ -37,7 +41,7 @@ namespace Devops.Deploy.Objects
 
         public IRelease AssignDeployment(List<IDeployment> Deployments)
         {
-            deployments = Deployments.Where(x => x.ReleaseId == Id).ToList();
+            deployments = Deployments.OrderByDescending(deployment=>deployment.DeployedAt).Where(deployment => deployment.ReleaseId == Id).ToList();
             deployments.ForEach(x => { Logger.Info($"Deployment {x.Id} is assigned to Release {Id}"); });
             return this;
         }

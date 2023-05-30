@@ -8,7 +8,7 @@ namespace Devops.Deploy.Interfaces.Clients
         
 
         public IProjectClient AssignProjects(string json, ITransform Transform);
-        public void AssignReleasesToRelevantProject(List<IRelease> Releases);
+        public void AssignReleasesToRelevantProject(IReleaseClient ReleaseClient, int MaximumReleases = -1);
         
     }
 }

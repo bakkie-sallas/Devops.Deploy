@@ -7,8 +7,7 @@
         public List<IDeployment> Deployments { get;  }
         public List<IRelease> Releases { get; }
         public IEnvironment MapProperties(IEnvironment Environment);
-        public IEnvironment AssignDeploymentsAndReleases(List<IDeployment> Deployments, List<IRelease> Releases);
-
-
+        public IEnvironment AssignReleases(List<IRelease> Releases);
+        public IEnvironment AssignDeployments(List<IDeployment> Deployments);
     }
 }

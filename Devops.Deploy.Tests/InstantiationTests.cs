@@ -2,6 +2,9 @@ using Devops.Deploy.Injectors;
 using Thirdparty.Interfaces;
 using Ninject;
 using Devops.Deploy.Interfaces.Clients;
+using Devops.Deploy.Clients;
+using Devops.Deploy.Interfaces;
+using Devops.Deploy.Objects;
 
 namespace Devops.Deploy.Tests
 {
@@ -56,9 +59,10 @@ namespace Devops.Deploy.Tests
             ProjectClient.AssignProjects(projectFile.ReadToEnd(), TransformClient.Transform);
 
 
-            ReleaseClient.AssignDeploymentsToRelevantRelease(DeploymentClient.Deployments);
-            ProjectClient.AssignReleasesToRelevantProject(ReleaseClient.Releases);
-            EnvironmentClient.AssignDeploymentsAndReleasesToRelevantEnvironment(DeploymentClient.Deployments,ReleaseClient.Releases);
+
+            ReleaseClient.AssignDeploymentsToRelevantRelease(DeploymentClient.SortDeployments()).SortReleases();
+            ProjectClient.AssignReleasesToRelevantProject(ReleaseClient.SortReleases());
+            EnvironmentClient.AssignDeploymentsToRelevantEnvironment(DeploymentClient.SortDeployments(), ReleaseClient.SortReleases());
 
 
 
@@ -204,14 +208,6 @@ namespace Devops.Deploy.Tests
 
 
         [Test]
-        //For each **environment**, keep `n` **releases** that have most recently been deployed, where `n` is the number of releases to keep. 
-        public void When_Environment_Instantiated_N_Releases_Must_Be_Available()
-        {
-
-            //Requires Method to Load specific amount of releases
-            Assert.IsNotNull(EnvironmentClient.Environments.Any(environment=> environment.Releases.Any()));
-        }
-        [Test]
         //For each **project**, keep `n` **releases** that have most recently been deployed, where `n` is the number of releases to keep. 
         public void When_Project_Instantiated_N_Releases_Must_Be_Available()
         {
@@ -221,19 +217,36 @@ namespace Devops.Deploy.Tests
 
         [Test]
         //For each **environment** combination, keep `n` **releases** that have most recently been deployed, where `n` is the number of releases to keep. 
-        public void When_Environment_Instantiated_Releases_Must_Be_Sorted_From_Most_Recent()
+        public void When_Environment_Instantiated_N_Releases_Must_Be_Sorted_From_Most_Recent()
         {
-            //check that previous item is later than current
-            var releasesAssigned= ProjectClient.Projects.SelectMany(environment => environment.Releases);
-            Assert.Greater(releasesAssigned.FirstOrDefault().Deployments.FirstOrDefault().DeployedAt, releasesAssigned.LastOrDefault().Deployments.FirstOrDefault().DeployedAt);
+            int NumberReleasesToTake = 5;
+
+            EnvironmentClient.AssignDeploymentsToRelevantEnvironment(DeploymentClient,ReleaseClient, NumberReleasesToTake);
+            
+            var releasesAssigned = EnvironmentClient.Environments.SelectMany(environment => environment.Releases);
+            Assert.Greater(GetApplicableDate(releasesAssigned.FirstOrDefault()), GetApplicableDate(releasesAssigned.LastOrDefault()));
+
+
+            var MaximumReleasesAssignedTOEnvironment = EnvironmentClient.Environments.Max(environment => environment.Releases.Count());
+
+            Assert.That(MaximumReleasesAssignedTOEnvironment, Is.EqualTo(NumberReleasesToTake));
         }
 
+       
         [Test]
         //For each **project**, keep `n` **releases** that have most recently been deployed, where `n` is the number of releases to keep. 
         public void When_Project_Instantiated_N_Releases_Must_Be_Sorted_From_Most_Recent()
         {
-            //check that previous item is later than current
-            Assert.IsNotNull(null);
+            int NumberReleasesToTake = 5;
+
+            ProjectClient.AssignReleasesToRelevantProject(ReleaseClient,NumberReleasesToTake);
+           
+            var releasesAssigned = ProjectClient.Projects.SelectMany(project => project.Releases);
+            Assert.GreaterOrEqual(GetApplicableDate(releasesAssigned.FirstOrDefault()), GetApplicableDate(releasesAssigned.LastOrDefault()));
+
+            var MaximumReleasesAssignedToProject = ProjectClient.Projects.SelectMany(project => project.Releases).Distinct().Count();
+
+            Assert.That(MaximumReleasesAssignedToProject, Is.EqualTo(NumberReleasesToTake));
         }
 
 
@@ -311,6 +324,15 @@ namespace Devops.Deploy.Tests
         public void Test3()
         {
             Assert.IsNotNull(null);
+        }
+
+
+        private DateTime GetApplicableDate(IRelease Release)
+        {
+            if (!Release.Deployments.Any())
+                return Release.Created;
+
+            return Release.Deployments.FirstOrDefault().DeployedAt;
         }
     }
 }

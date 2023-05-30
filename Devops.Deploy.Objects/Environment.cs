@@ -14,7 +14,6 @@ namespace Devops.Deploy.Objects
 
         private List<IDeployment> deployments;
         private List<IRelease> releases;
-        private List<string> releaseIds;
         public ILogger Logger { get; }
         public Environment()
         {
@@ -40,13 +39,22 @@ namespace Devops.Deploy.Objects
             return this;
         }
 
-   
-        public IEnvironment AssignDeploymentsAndReleases(List<IDeployment> Deployments, List<IRelease> Releases)
+        public IEnvironment AssignReleases(List<IRelease> Releases)
+        {
+            if (Releases!=null && Releases.Any())
+            {
+                Logger.Info($"Assigning Releases to Deployments:: {this.Id}");
+                releases = Releases.Where(release => deployments.Select(deployment => deployment.ReleaseId).Contains(release.Id)).ToList();
+            }
+            return this;
+        }
+
+        public IEnvironment AssignDeployments(List<IDeployment> Deployments)
         {
             Logger.Info($"Assigning Deployments to Environment:: {this.Id}");
             deployments = Deployments.Where(deployment=> deployment.EnvironmentId == this.Id).ToList();
-            Logger.Info($"Assigning Releases to Deployments:: {this.Id}");
-            releases = Releases.Where(release => deployments.Select(deployment => deployment.ReleaseId).Contains(release.Id)).ToList();
+            AssignReleases(releases);
+
             return this;
         }
     }

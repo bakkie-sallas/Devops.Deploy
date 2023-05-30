@@ -28,10 +28,10 @@ namespace Devops.Deploy.Clients
             return this;
         }
 
-        public void AssignReleasesToRelevantProject(List<IRelease> Releases)
+        public void AssignReleasesToRelevantProject(IReleaseClient ReleaseClient, int MaximumReleases = -1)
         {
-            projects.ForEach(project => { project.AssignReleases(Releases); });
+            projects.ForEach(project => { project.AssignReleases(ReleaseClient.Releases.Limit(MaximumReleases)); });
         }
-
+        
     }
 }
