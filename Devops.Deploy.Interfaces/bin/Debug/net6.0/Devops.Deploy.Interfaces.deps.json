@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "Devops.Deploy.Interfaces/1.0.0": {
+        "dependencies": {
+          "Thirdparty.Interfaces": "1.0.0"
+        },
         "runtime": {
           "Devops.Deploy.Interfaces.dll": {}
+        }
+      },
+      "Thirdparty.Interfaces/1.0.0": {
+        "runtime": {
+          "Thirdparty.Interfaces.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Devops.Deploy.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Thirdparty.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -28,10 +28,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Devops.Deploy.Injectors\Devops.Deploy.Injectors.csproj" />
     <ProjectReference Include="..\Devops.Deploy.Interfaces\Devops.Deploy.Interfaces.csproj" />
+    <ProjectReference Include="..\Thjirdparty.Interfaces\Thirdparty.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="JSONSource\Deployments.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="JSONSource\Environments.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="JSONSource\Projects.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="JSONSource\Releases.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="nlog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

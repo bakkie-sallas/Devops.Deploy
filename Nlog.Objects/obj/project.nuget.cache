@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6FS43A9+/97369mn8EHT/tnFHC/tQRsws52SlS2vWYPck8Zem45/SrZ0LUpHyIxmOOrNm2J4MuEk7piCqhozDw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Nlog.Objects\\Nlog.Objects.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\wilken.lues\\.nuget\\packages\\nlog\\5.1.5\\nlog.5.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Nlog.Objects/1.0.0": {
+        "dependencies": {
+          "NLog": "5.1.5",
+          "Thirdparty.Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "Nlog.Objects.dll": {}
+        }
+      },
+      "NLog/5.1.5": {
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.5.1789"
+          }
+        }
+      },
+      "Thirdparty.Interfaces/1.0.0": {
+        "runtime": {
+          "Thirdparty.Interfaces.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Nlog.Objects/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NLog/5.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZITyL6pD8f7w6ahHoP7DC4KpsyZMVuSsP7lmMo9WOYg/65/yEqpCteEOWI9lOIqJB2i8/obIj1ivIAOiMt4+eg==",
+      "path": "nlog/5.1.5",
+      "hashPath": "nlog.5.1.5.nupkg.sha512"
+    },
+    "Thirdparty.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

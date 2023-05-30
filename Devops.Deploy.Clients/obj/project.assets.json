@@ -5,11 +5,24 @@
       "Devops.Deploy.Interfaces/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Thirdparty.Interfaces": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Devops.Deploy.Interfaces.dll": {}
         },
         "runtime": {
           "bin/placeholder/Devops.Deploy.Interfaces.dll": {}
+        }
+      },
+      "Thirdparty.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Thirdparty.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Thirdparty.Interfaces.dll": {}
         }
       }
     }
@@ -19,11 +32,17 @@
       "type": "project",
       "path": "../Devops.Deploy.Interfaces/Devops.Deploy.Interfaces.csproj",
       "msbuildProject": "../Devops.Deploy.Interfaces/Devops.Deploy.Interfaces.csproj"
+    },
+    "Thirdparty.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj",
+      "msbuildProject": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Devops.Deploy.Interfaces >= 1.0.0"
+      "Devops.Deploy.Interfaces >= 1.0.0",
+      "Thirdparty.Interfaces >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -58,6 +77,9 @@
           "projectReferences": {
             "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Devops.Deploy.Interfaces\\Devops.Deploy.Interfaces.csproj": {
               "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Devops.Deploy.Interfaces\\Devops.Deploy.Interfaces.csproj"
+            },
+            "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj"
             }
           }
         }

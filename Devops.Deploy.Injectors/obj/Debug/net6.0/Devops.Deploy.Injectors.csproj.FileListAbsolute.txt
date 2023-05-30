@@ -15,3 +15,9 @@ C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debu
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\refint\Devops.Deploy.Injectors.dll
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\Devops.Deploy.Injectors.pdb
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\obj\Debug\net6.0\ref\Devops.Deploy.Injectors.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Nlog.Objects.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Thirdparty.Interfaces.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Nlog.Objects.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Thirdparty.Interfaces.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Devops.Deploy.Clients.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Injectors\bin\Debug\net6.0\Devops.Deploy.Clients.pdb

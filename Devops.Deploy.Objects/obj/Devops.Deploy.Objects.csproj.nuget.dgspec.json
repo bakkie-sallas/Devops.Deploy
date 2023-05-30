@@ -29,7 +29,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -89,8 +93,74 @@
             "projectReferences": {
               "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Devops.Deploy.Interfaces\\Devops.Deploy.Interfaces.csproj": {
                 "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Devops.Deploy.Interfaces\\Devops.Deploy.Interfaces.csproj"
+              },
+              "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj"
               }
             }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj",
+        "projectName": "Thirdparty.Interfaces",
+        "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\wilken.lues\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\wilken.lues\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
           }
         },
         "warningProperties": {

@@ -1,12 +1,17 @@
 ﻿namespace Devops.Deploy.Interfaces
 {
-    internal interface IRelease
+    public interface IRelease
     {
-        string Id { get; set; }
-        string ProjectId { get; set; }
-        string Version { get; set; }
-        DateTime Created { get; set; }
+        public string Id { get; set; }
+        public string ProjectId { get; set; }
+        public string Version { get; set; }
+        public DateTime Created { get; set; }
+        public List<IDeployment> Deployments { get;  }
+        public bool HasBeenReleased { get; }
+        public IRelease AssignDeployment(List<IDeployment> Deployments);
+        public IRelease ValidateAssignedDeployments(List<IEnvironment> Environments);
 
-        IProject Project { get;}
+        public IRelease MapProperties(IRelease Release);
+       
     }
 }

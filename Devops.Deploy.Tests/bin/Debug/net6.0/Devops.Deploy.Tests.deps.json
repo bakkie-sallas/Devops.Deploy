@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Devops.Deploy.Tests/1.0.0": {
         "dependencies": {
+          "Devops.Deploy.Injectors": "1.0.0",
           "Devops.Deploy.Interfaces": "1.0.0",
           "Microsoft.Extensions.Configuration": "7.0.0",
           "Microsoft.Extensions.Configuration.Json": "7.0.0",
@@ -18,6 +19,7 @@
           "NUnit.Analyzers": "3.3.0",
           "NUnit3TestAdapter": "4.2.1",
           "Ninject": "3.3.6",
+          "Thirdparty.Interfaces": "1.0.0",
           "coverlet.collector": "3.1.2"
         },
         "runtime": {
@@ -879,9 +881,58 @@
           "System.Xml.ReaderWriter": "4.0.11"
         }
       },
+      "Devops.Deploy.Clients/1.0.0": {
+        "dependencies": {
+          "Devops.Deploy.Interfaces": "1.0.0",
+          "Thirdparty.Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "Devops.Deploy.Clients.dll": {}
+        }
+      },
+      "Devops.Deploy.Injectors/1.0.0": {
+        "dependencies": {
+          "Devops.Deploy.Clients": "1.0.0",
+          "Devops.Deploy.Interfaces": "1.0.0",
+          "Devops.Deploy.Objects": "1.0.0",
+          "Ninject": "3.3.6",
+          "Nlog.Objects": "1.0.0",
+          "Thirdparty.Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "Devops.Deploy.Injectors.dll": {}
+        }
+      },
       "Devops.Deploy.Interfaces/1.0.0": {
+        "dependencies": {
+          "Thirdparty.Interfaces": "1.0.0"
+        },
         "runtime": {
           "Devops.Deploy.Interfaces.dll": {}
+        }
+      },
+      "Devops.Deploy.Objects/1.0.0": {
+        "dependencies": {
+          "Devops.Deploy.Interfaces": "1.0.0",
+          "Newtonsoft.Json": "9.0.1",
+          "Thirdparty.Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "Devops.Deploy.Objects.dll": {}
+        }
+      },
+      "Nlog.Objects/1.0.0": {
+        "dependencies": {
+          "NLog": "5.1.5",
+          "Thirdparty.Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "Nlog.Objects.dll": {}
+        }
+      },
+      "Thirdparty.Interfaces/1.0.0": {
+        "runtime": {
+          "Thirdparty.Interfaces.dll": {}
         }
       }
     }
@@ -1361,7 +1412,32 @@
       "path": "system.xml.xdocument/4.0.11",
       "hashPath": "system.xml.xdocument.4.0.11.nupkg.sha512"
     },
+    "Devops.Deploy.Clients/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Devops.Deploy.Injectors/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Devops.Deploy.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Devops.Deploy.Objects/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Nlog.Objects/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Thirdparty.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -13,3 +13,5 @@ C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Clients\obj\Debug\
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Clients\obj\Debug\net6.0\refint\Devops.Deploy.Clients.dll
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Clients\obj\Debug\net6.0\Devops.Deploy.Clients.pdb
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Clients\obj\Debug\net6.0\ref\Devops.Deploy.Clients.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Clients\bin\Debug\net6.0\Thirdparty.Interfaces.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Clients\bin\Debug\net6.0\Thirdparty.Interfaces.pdb

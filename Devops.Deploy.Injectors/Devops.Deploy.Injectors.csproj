@@ -11,8 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Devops.Deploy.Clients\Devops.Deploy.Clients.csproj" />
     <ProjectReference Include="..\Devops.Deploy.Interfaces\Devops.Deploy.Interfaces.csproj" />
     <ProjectReference Include="..\Devops.Deploy.Objects\Devops.Deploy.Objects.csproj" />
+    <ProjectReference Include="..\Nlog.Objects\Nlog.Objects.csproj" />
+    <ProjectReference Include="..\Thjirdparty.Interfaces\Thirdparty.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

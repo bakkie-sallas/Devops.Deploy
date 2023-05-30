@@ -1,18 +1,19 @@
 ﻿namespace Devops.Deploy.Interfaces
 {
-    internal interface IDeployment
+    public interface IDeployment
     {
-        string Id { get; set; }
+        public string Id { get; set; }
 
-        DateTime DeployedAt { get; set; }
+        public DateTime DeployedAt { get; set; }
 
-        string ReleaseId { get; }
-        string EnvironmentId { get; }
+        public string ReleaseId { get; }
+        public string EnvironmentId { get; }
 
-        IRelease Release { get; }
+        public bool HasValidEnvironment { get; set; }
+     
+        public void ValidateEnvironments(List<IEnvironment> AvailableEnvironments);
+        public IDeployment MapProperties(IDeployment Deployment);
+    
 
-        bool Loaded { get; }
-
-        bool Load(string JSON);
     }
 }

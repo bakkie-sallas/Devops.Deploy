@@ -1,8 +1,14 @@
 ﻿namespace Devops.Deploy.Interfaces
 {
-    internal interface IEnvironment
+    public interface IEnvironment
     {
-        string Id { get; set; }
-        string Name { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public List<IDeployment> Deployments { get;  }
+        public List<IRelease> Releases { get; }
+        public IEnvironment MapProperties(IEnvironment Environment);
+        public IEnvironment AssignDeploymentsAndReleases(List<IDeployment> Deployments, List<IRelease> Releases);
+
+
     }
 }

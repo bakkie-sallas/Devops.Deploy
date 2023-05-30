@@ -22,3 +22,6 @@ C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Interfaces\obj\Deb
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Interfaces\obj\Debug\net6.0\refint\Devops.Deploy.Interfaces.dll
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Interfaces\obj\Debug\net6.0\Devops.Deploy.Interfaces.pdb
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Interfaces\obj\Debug\net6.0\ref\Devops.Deploy.Interfaces.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Interfaces\bin\Debug\net6.0\Thirdparty.Interfaces.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Interfaces\bin\Debug\net6.0\Thirdparty.Interfaces.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Interfaces\obj\Debug\net6.0\Devops.Deploy.Interfaces.csproj.CopyComplete

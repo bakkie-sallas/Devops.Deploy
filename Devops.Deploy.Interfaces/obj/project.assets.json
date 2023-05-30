@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Thirdparty.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Thirdparty.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Thirdparty.Interfaces.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Thirdparty.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj",
+      "msbuildProject": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Thirdparty.Interfaces >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\wilken.lues\\.nuget\\packages\\": {},
@@ -36,7 +55,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

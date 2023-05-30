@@ -1351,14 +1351,88 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "Devops.Deploy.Clients/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Devops.Deploy.Interfaces": "1.0.0",
+          "Thirdparty.Interfaces": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Devops.Deploy.Clients.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Devops.Deploy.Clients.dll": {}
+        }
+      },
+      "Devops.Deploy.Injectors/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Devops.Deploy.Clients": "1.0.0",
+          "Devops.Deploy.Interfaces": "1.0.0",
+          "Devops.Deploy.Objects": "1.0.0",
+          "Ninject": "3.3.6",
+          "Nlog.Objects": "1.0.0",
+          "Thirdparty.Interfaces": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Devops.Deploy.Injectors.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Devops.Deploy.Injectors.dll": {}
+        }
+      },
       "Devops.Deploy.Interfaces/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Thirdparty.Interfaces": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Devops.Deploy.Interfaces.dll": {}
         },
         "runtime": {
           "bin/placeholder/Devops.Deploy.Interfaces.dll": {}
+        }
+      },
+      "Devops.Deploy.Objects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Devops.Deploy.Interfaces": "1.0.0",
+          "Newtonsoft.Json": "9.0.1",
+          "Thirdparty.Interfaces": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Devops.Deploy.Objects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Devops.Deploy.Objects.dll": {}
+        }
+      },
+      "Nlog.Objects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "NLog": "5.1.5",
+          "Thirdparty.Interfaces": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Nlog.Objects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Nlog.Objects.dll": {}
+        }
+      },
+      "Thirdparty.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Thirdparty.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Thirdparty.Interfaces.dll": {}
         }
       }
     }
@@ -4904,14 +4978,40 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Devops.Deploy.Clients/1.0.0": {
+      "type": "project",
+      "path": "../Devops.Deploy.Clients/Devops.Deploy.Clients.csproj",
+      "msbuildProject": "../Devops.Deploy.Clients/Devops.Deploy.Clients.csproj"
+    },
+    "Devops.Deploy.Injectors/1.0.0": {
+      "type": "project",
+      "path": "../Devops.Deploy.Injectors/Devops.Deploy.Injectors.csproj",
+      "msbuildProject": "../Devops.Deploy.Injectors/Devops.Deploy.Injectors.csproj"
+    },
     "Devops.Deploy.Interfaces/1.0.0": {
       "type": "project",
       "path": "../Devops.Deploy.Interfaces/Devops.Deploy.Interfaces.csproj",
       "msbuildProject": "../Devops.Deploy.Interfaces/Devops.Deploy.Interfaces.csproj"
+    },
+    "Devops.Deploy.Objects/1.0.0": {
+      "type": "project",
+      "path": "../Devops.Deploy.Objects/Devops.Deploy.Objects.csproj",
+      "msbuildProject": "../Devops.Deploy.Objects/Devops.Deploy.Objects.csproj"
+    },
+    "Nlog.Objects/1.0.0": {
+      "type": "project",
+      "path": "../Nlog.Objects/Nlog.Objects.csproj",
+      "msbuildProject": "../Nlog.Objects/Nlog.Objects.csproj"
+    },
+    "Thirdparty.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj",
+      "msbuildProject": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Devops.Deploy.Injectors >= 1.0.0",
       "Devops.Deploy.Interfaces >= 1.0.0",
       "Microsoft.Extensions.Configuration >= 7.0.0",
       "Microsoft.Extensions.Configuration.Json >= 7.0.0",
@@ -4922,6 +5022,7 @@
       "NUnit.Analyzers >= 3.3.0",
       "NUnit3TestAdapter >= 4.2.1",
       "Ninject >= 3.3.6",
+      "Thirdparty.Interfaces >= 1.0.0",
       "coverlet.collector >= 3.1.2"
     ]
   },
@@ -4955,8 +5056,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Devops.Deploy.Injectors\\Devops.Deploy.Injectors.csproj": {
+              "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Devops.Deploy.Injectors\\Devops.Deploy.Injectors.csproj"
+            },
             "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Devops.Deploy.Interfaces\\Devops.Deploy.Interfaces.csproj": {
               "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Devops.Deploy.Interfaces\\Devops.Deploy.Interfaces.csproj"
+            },
+            "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj"
             }
           }
         }

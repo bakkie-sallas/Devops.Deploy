@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="IDeployment.cs~RFf9160e5.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Thjirdparty.Interfaces\Thirdparty.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>

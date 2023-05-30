@@ -229,3 +229,17 @@ C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\ne
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Ninject.dll
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Devops.Deploy.Interfaces.dll
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Devops.Deploy.Interfaces.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Devops.Deploy.Clients.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Devops.Deploy.Injectors.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Devops.Deploy.Objects.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Nlog.Objects.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Thirdparty.Interfaces.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Devops.Deploy.Clients.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Devops.Deploy.Injectors.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Thirdparty.Interfaces.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Devops.Deploy.Objects.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Nlog.Objects.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\JSONSource\Deployments.json
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\JSONSource\Environments.json
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\JSONSource\Projects.json
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\JSONSource\Releases.json

@@ -1,0 +1,138 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "NLog/5.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NLog.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Thirdparty.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Thirdparty.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Thirdparty.Interfaces.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NLog/5.1.5": {
+      "sha512": "ZITyL6pD8f7w6ahHoP7DC4KpsyZMVuSsP7lmMo9WOYg/65/yEqpCteEOWI9lOIqJB2i8/obIj1ivIAOiMt4+eg==",
+      "type": "package",
+      "path": "nlog/5.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "N.png",
+        "lib/net35/NLog.dll",
+        "lib/net35/NLog.xml",
+        "lib/net45/NLog.dll",
+        "lib/net45/NLog.xml",
+        "lib/net46/NLog.dll",
+        "lib/net46/NLog.xml",
+        "lib/netstandard1.3/NLog.dll",
+        "lib/netstandard1.3/NLog.xml",
+        "lib/netstandard1.5/NLog.dll",
+        "lib/netstandard1.5/NLog.xml",
+        "lib/netstandard2.0/NLog.dll",
+        "lib/netstandard2.0/NLog.xml",
+        "nlog.5.1.5.nupkg.sha512",
+        "nlog.nuspec"
+      ]
+    },
+    "Thirdparty.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj",
+      "msbuildProject": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "NLog >= 5.1.5",
+      "Thirdparty.Interfaces >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\wilken.lues\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Nlog.Objects\\Nlog.Objects.csproj",
+      "projectName": "Nlog.Objects",
+      "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Nlog.Objects\\Nlog.Objects.csproj",
+      "packagesPath": "C:\\Users\\wilken.lues\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Nlog.Objects\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\wilken.lues\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "dependencies": {
+          "NLog": {
+            "target": "Package",
+            "version": "[5.1.5, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
