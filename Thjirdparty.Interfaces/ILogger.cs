@@ -4,5 +4,7 @@
     {
         public void Error(string message, object obj = null);
         public void Info(string message, object obj = null);
+        public Guid InstanceId { get; set; }
+        public string CompleteLog();
     }
 }

@@ -23,7 +23,12 @@ namespace Devops.Deploy.Clients
         }
         public IDeploymentClient AssignDeployments(string json, ITransform Transform)
         {
-            deployments = Transform.GetDeployments(json);
+            AssignDeployments(Transform.GetDeployments(json));
+            return this;
+        }
+        public IDeploymentClient AssignDeployments(List<IDeployment> Deployments)
+        {
+            deployments = Deployments;
             return this;
         }
 

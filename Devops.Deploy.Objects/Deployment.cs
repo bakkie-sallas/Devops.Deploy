@@ -29,22 +29,24 @@ namespace Devops.Deploy.Objects
 
         public Deployment(IDeployment Deployment, ILogger Logger) : this(Logger)
         {
-            MapProperties(Deployment);
+            MapProperties(Deployment.Id, Deployment.DeployedAt, Deployment.ReleaseId, Deployment.EnvironmentId);
         }
-
+        public Deployment(string Id, DateTime DeployedAt, string ReleaseId, string EnvironmentId)
+        {
+            MapProperties(Id, DeployedAt, ReleaseId, EnvironmentId);
+        }
         public void ValidateEnvironments( List<IEnvironment> AvailableEnvironments)
         { 
             HasValidEnvironment = AvailableEnvironments.Any(environment=> environment.Id== EnvironmentId);
             Logger.Info($"Deployment {Id} is assigned to Environment {EnvironmentId}. Validity:: {HasValidEnvironment}");
         }
 
-        public IDeployment MapProperties(IDeployment Deployment)
+        private IDeployment MapProperties(string Id, DateTime DeployedAt, string ReleaseId, string EnvironmentId)
         {
-            this.Id = Deployment.Id;
-            this.DeployedAt= Deployment.DeployedAt;
-            this.ReleaseId = Deployment.ReleaseId;
-            this.EnvironmentId = Deployment.EnvironmentId;
-            this.HasValidEnvironment= Deployment.HasValidEnvironment;
+            this.Id = Id;
+            this.DeployedAt= DeployedAt;
+            this.ReleaseId = ReleaseId;
+            this.EnvironmentId = EnvironmentId;
             return this;
         }
      

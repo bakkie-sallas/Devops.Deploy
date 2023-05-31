@@ -23,12 +23,32 @@ namespace Devops.Deploy.Clients
         }
         public IEnvironmentClient AssignEnvironments(string json, ITransform Transform)
         {
-            environments = Transform.GetEnvironments(json); 
+            AssignEnvironments(Transform.GetEnvironments(json)); 
             return this;
         }
-        public void AssignDeploymentsToRelevantEnvironment(IDeploymentClient DeploymentClient, IReleaseClient ReleaseClient, int MaximumReleases = -1)
+
+
+        public IEnvironmentClient AssignEnvironments(List<IEnvironment> Environments)
         {
-            environments.ForEach(environment => { environment.AssignDeployments(DeploymentClient.Deployments.Limit(MaximumReleases,Logger)).AssignReleases(ReleaseClient.Releases); });
+            environments = Environments;
+            return this;
+        }
+
+        public void LimitDeployments(IDeploymentClient DeploymentClient, IReleaseClient ReleaseClient, int MaximumReleases = -1)
+        {
+            environments.ForEach(environment =>
+                environment.AssignDeployments( 
+                    DeploymentClient.Deployments.Limit(MaximumReleases, environment.Id, Logger)
+                    ).AssignReleases(ReleaseClient.Releases));
+        }
+
+
+        public void AssignDeploymentsToRelevantEnvironment(IDeploymentClient DeploymentClient, IReleaseClient ReleaseClient)
+        {
+            environments.ForEach(environment => 
+                { 
+                    environment.AssignDeployments(DeploymentClient.Deployments).AssignReleases(ReleaseClient.Releases); 
+                });
         }
 
     }

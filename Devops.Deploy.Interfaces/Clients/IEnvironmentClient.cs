@@ -1,4 +1,5 @@
-﻿using Thirdparty.Interfaces;
+﻿using System;
+using Thirdparty.Interfaces;
 
 namespace Devops.Deploy.Interfaces.Clients
 {
@@ -7,7 +8,12 @@ namespace Devops.Deploy.Interfaces.Clients
         public List<IEnvironment> Environments { get; }
         
         public IEnvironmentClient AssignEnvironments(string json, ITransform Transform);
-        public void AssignDeploymentsToRelevantEnvironment(IDeploymentClient DeploymentClient, IReleaseClient ReleaseClient, int MaximumReleases = -1);
+
+        public IEnvironmentClient AssignEnvironments(List<IEnvironment> Environments);
+
+        public void AssignDeploymentsToRelevantEnvironment(IDeploymentClient DeploymentClient, IReleaseClient ReleaseClient);
+       
+        public void LimitDeployments(IDeploymentClient DeploymentClient, IReleaseClient ReleaseClient, int MaximumReleases = -1);
 
     }
 }

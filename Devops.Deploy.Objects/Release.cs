@@ -39,7 +39,7 @@ namespace Devops.Deploy.Objects
             MapProperties(Release);
         }
 
-        public IRelease AssignDeployment(List<IDeployment> Deployments)
+        public IRelease AssignDeployments(List<IDeployment> Deployments)
         {
             deployments = Deployments.OrderByDescending(deployment=>deployment.DeployedAt).Where(deployment => deployment.ReleaseId == Id).ToList();
             deployments.ForEach(x => { Logger.Info($"Deployment {x.Id} is assigned to Release {Id}"); });

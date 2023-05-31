@@ -6,14 +6,12 @@
 
         public DateTime DeployedAt { get; set; }
 
-        public string ReleaseId { get; }
-        public string EnvironmentId { get; }
+        public string ReleaseId { get; set; }
+        public string EnvironmentId { get; set; }
 
         public bool HasValidEnvironment { get; set; }
      
         public void ValidateEnvironments(List<IEnvironment> AvailableEnvironments);
-        public IDeployment MapProperties(IDeployment Deployment);
     
-
     }
 }

@@ -243,3 +243,7 @@ C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\ne
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\JSONSource\Environments.json
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\JSONSource\Projects.json
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\JSONSource\Releases.json
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Specific\Environments.json
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Specific\Projects.json
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Specific\Releases.json
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Devops.Deploy.Tests\bin\Debug\net6.0\Specific\Test1_Deployments.json

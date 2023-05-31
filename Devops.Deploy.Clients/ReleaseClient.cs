@@ -19,9 +19,17 @@ namespace Devops.Deploy.Clients
         {
             this.Logger = Logger;
         }
+        
+        
+        
         public IReleaseClient AssignReleases(string json, ITransform Transform)
         {
-            releases = Transform.GetReleases(json).OrderByDescending(release => release.Deployments.FirstOrDefault()).ToList();
+            AssignReleases(Transform.GetReleases(json));
+            return this;
+        }
+        public IReleaseClient AssignReleases(List<IRelease> Releases)
+        {
+            releases = Releases.OrderByDescending(release => release.DeploymentOrCreated).ToList();
             return this;
         }
 
@@ -30,7 +38,7 @@ namespace Devops.Deploy.Clients
             if (releases == null)
                 throw new Exception("There are no releases to assign the deployments to");
 
-            releases.ForEach(release => { release.AssignDeployment(DeploymentClient.Deployments); });
+            releases.ForEach(release => { release.AssignDeployments(DeploymentClient.Deployments); });
             return this;
         }
 

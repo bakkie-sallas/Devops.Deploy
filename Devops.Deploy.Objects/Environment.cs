@@ -9,7 +9,7 @@ namespace Devops.Deploy.Objects
         public string Id { get; set; }
         public string Name { get; set; }
         public List<IDeployment> Deployments  => deployments;
-        public List<IRelease> Releases => releases;
+        public List<IRelease> Releases => releases?? new List<IRelease>();
 
 
         private List<IDeployment> deployments;
@@ -43,7 +43,6 @@ namespace Devops.Deploy.Objects
         {
             if (Releases!=null && Releases.Any())
             {
-                Logger.Info($"Assigning Releases to Deployments:: {this.Id}");
                 releases = Releases.Where(release => deployments.Select(deployment => deployment.ReleaseId).Contains(release.Id)).ToList();
             }
             return this;

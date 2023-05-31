@@ -24,10 +24,14 @@ namespace Devops.Deploy.Clients
         
         public  IProjectClient AssignProjects(string json, ITransform Transform)
         {
-            projects = Transform.GetProjects(json);
+            AssignProjects(Transform.GetProjects(json));
             return this;
         }
-
+        public IProjectClient AssignProjects(List<IProject> Projects)
+        {
+            projects = Projects;
+            return this;
+        }
         public void AssignReleasesToRelevantProject(IReleaseClient ReleaseClient, int MaximumReleases = -1)
         {
             projects.ForEach(project => { project.AssignReleases(ReleaseClient.Releases.Limit(MaximumReleases, Logger)); });
