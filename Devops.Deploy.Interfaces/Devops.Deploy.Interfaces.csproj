@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Thjirdparty.Interfaces\Thirdparty.Interfaces.csproj" />
+    <ProjectReference Include="..\Thirdparty.Interfaces\Thirdparty.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2741,8 +2741,8 @@
     },
     "Thirdparty.Interfaces/1.0.0": {
       "type": "project",
-      "path": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj",
-      "msbuildProject": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj"
+      "path": "../Thirdparty.Interfaces/Thirdparty.Interfaces.csproj",
+      "msbuildProject": "../Thirdparty.Interfaces/Thirdparty.Interfaces.csproj"
     }
   },
   "projectFileDependencyGroups": {

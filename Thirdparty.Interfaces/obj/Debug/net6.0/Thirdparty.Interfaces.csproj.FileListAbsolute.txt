@@ -10,3 +10,15 @@ C:\Users\wilken.lues\source\repos\Devops.Deploy\Thjirdparty.Interfaces\obj\Debug
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Thjirdparty.Interfaces\obj\Debug\net6.0\refint\Thirdparty.Interfaces.dll
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Thjirdparty.Interfaces\obj\Debug\net6.0\Thirdparty.Interfaces.pdb
 C:\Users\wilken.lues\source\repos\Devops.Deploy\Thjirdparty.Interfaces\obj\Debug\net6.0\ref\Thirdparty.Interfaces.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\bin\Debug\net6.0\Thirdparty.Interfaces.deps.json
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\bin\Debug\net6.0\Thirdparty.Interfaces.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\bin\Debug\net6.0\Thirdparty.Interfaces.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\obj\Debug\net6.0\Thirdparty.Interfaces.csproj.AssemblyReference.cache
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\obj\Debug\net6.0\Thirdparty.Interfaces.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\obj\Debug\net6.0\Thirdparty.Interfaces.AssemblyInfoInputs.cache
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\obj\Debug\net6.0\Thirdparty.Interfaces.AssemblyInfo.cs
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\obj\Debug\net6.0\Thirdparty.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\obj\Debug\net6.0\Thirdparty.Interfaces.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\obj\Debug\net6.0\refint\Thirdparty.Interfaces.dll
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\obj\Debug\net6.0\Thirdparty.Interfaces.pdb
+C:\Users\wilken.lues\source\repos\Devops.Deploy\Thirdparty.Interfaces\obj\Debug\net6.0\ref\Thirdparty.Interfaces.dll

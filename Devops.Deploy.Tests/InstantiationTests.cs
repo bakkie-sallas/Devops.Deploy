@@ -4,6 +4,7 @@ using Devops.Deploy.Interfaces;
 using Devops.Deploy.Interfaces.Clients;
 using Devops.Deploy.Objects;
 using Ninject;
+using System.Net.Http.Headers;
 using Thirdparty.Interfaces;
 
 namespace Devops.Deploy.Tests
@@ -274,7 +275,7 @@ namespace Devops.Deploy.Tests
             //Note That N is shared between Projects and Environments
             int NumberReleasesToTake = 4;
             InstanceClient.SetReleaseLimit(NumberReleasesToTake);
-            InstanceAsserts(NumberReleasesToTake);
+            InstanceAsserts(NumberReleasesToTake, NumberReleasesToTake);
 
         }
      
@@ -317,8 +318,8 @@ namespace Devops.Deploy.Tests
             InstanceClient.ProjectClient.AssignProjects(new List<IProject> { singleProject });
 
             InstanceClient.SetReleaseLimit(numberToKeep);
-            InstanceAsserts(numberToKeep);
-            Assert.IsTrue(ScanLogFileFor(@"'Release-1' kept because it was the most recently deployed to 'Environment-1'"));
+            InstanceAsserts(numberToKeep, numberToKeep);
+            Assert.IsTrue(ScanLogFileFor(new List<string>() { @"'Release-1' kept because it was the most recently deployed to 'Environment-1'" }));
         }
 
         [Test]
@@ -377,8 +378,8 @@ namespace Devops.Deploy.Tests
             InstanceClient.ProjectClient.AssignProjects(new List<IProject> { singleProject });
 
             InstanceClient.SetReleaseLimit(numberToKeep);
-            InstanceAsserts(numberToKeep);
-            Assert.IsTrue(ScanLogFileFor(@"'Release-1' kept because it was the most recently deployed to 'Environment-1'"));
+            InstanceAsserts(numberToKeep,numberToKeep);
+            Assert.IsTrue(ScanLogFileFor(new List<string>() { @"'Release-1' kept because it was the most recently deployed to 'Environment-1'" }));
 
         }
 
@@ -444,17 +445,20 @@ namespace Devops.Deploy.Tests
             singleProject.AssignReleases(InstanceClient.ReleaseClient.Releases);
             InstanceClient.ProjectClient.AssignProjects(new List<IProject> { singleProject });
 
+
+            int NumberReleasesToValidateForEnvironment = 1;// Because there is one per environment
+            int NumberReleasesToValidateForProject = 2;// Because there is one per environment
             InstanceClient.SetReleaseLimit(numberToKeep);
-            InstanceAsserts(numberToKeep);
-            Assert.IsTrue(ScanLogFileFor(@"'Release-1' kept because it was the most recently deployed to 'Environment-2'"));
-            Assert.IsTrue(ScanLogFileFor(@"'Release-2' kept because it was the most recently deployed to 'Environment-1'"));
+            InstanceAsserts(NumberReleasesToValidateForEnvironment, NumberReleasesToValidateForProject);
+            Assert.IsTrue(ScanLogFileFor(new List<string>() { @"'Release-1' kept because it was the most recently deployed to 'Environment-2'",
+            @"'Release-2' kept because it was the most recently deployed to 'Environment-1'" }));
 
         }
 
 
 
 
-        private void InstanceAsserts(int NumberReleasesToTake)
+        private void InstanceAsserts(int NumberReleasesToValidateForEnvironment, int NumberReleasesToValidateForProject)
         {
             //Environment Date comparison
             InstanceClient.EnvironmentClient.Environments.ForEach(environment =>
@@ -464,8 +468,9 @@ namespace Devops.Deploy.Tests
                     GetApplicableDate(environment.Releases.LastOrDefault()));
             });
 
+
             var MaximumReleasesAssignedTOEnvironment = InstanceClient.EnvironmentClient.Environments.Max(environment => environment.Releases.Count());
-            Assert.That(MaximumReleasesAssignedTOEnvironment, Is.EqualTo(NumberReleasesToTake));
+            Assert.That(MaximumReleasesAssignedTOEnvironment, Is.EqualTo(NumberReleasesToValidateForEnvironment));
 
 
             //Project Date comparison
@@ -477,7 +482,7 @@ namespace Devops.Deploy.Tests
             });
 
             var MaximumReleasesAssignedToProject = InstanceClient.ProjectClient.Projects.SelectMany(project => project.Releases).Distinct().Count();
-            Assert.That(MaximumReleasesAssignedToProject, Is.EqualTo(NumberReleasesToTake));
+            Assert.That(MaximumReleasesAssignedToProject, Is.EqualTo(NumberReleasesToValidateForProject));
         }
         private DateTime GetApplicableDate(IRelease Release)
         {
@@ -490,17 +495,23 @@ namespace Devops.Deploy.Tests
         }
 
 
-        private bool ScanLogFileFor(string searchText)
+        private bool ScanLogFileFor(List<string> searchTexts)
         {
+            var retVal = false;
             var logLines = File.ReadLines(
                 InstanceClient.Logger.CompleteLog().Replace("${level}","info")).Reverse().ToList();
-
-            foreach (var logLine in logLines)
-            { 
-                if(logLine.Contains(searchText))
-                    return true;
-            }
-            return false;
+            searchTexts.ForEach(searchText =>
+            {
+                foreach (var logLine in logLines)
+                {
+                    if (logLine.Contains(searchText))
+                    {
+                        retVal = true;
+                        break;
+                    }
+                }
+            });
+            return retVal;
         }
     }
 }

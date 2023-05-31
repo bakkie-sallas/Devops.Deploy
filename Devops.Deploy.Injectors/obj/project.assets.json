@@ -2894,8 +2894,8 @@
     },
     "Thirdparty.Interfaces/1.0.0": {
       "type": "project",
-      "path": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj",
-      "msbuildProject": "../Thjirdparty.Interfaces/Thirdparty.Interfaces.csproj"
+      "path": "../Thirdparty.Interfaces/Thirdparty.Interfaces.csproj",
+      "msbuildProject": "../Thirdparty.Interfaces/Thirdparty.Interfaces.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2950,8 +2950,8 @@
             "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Nlog.Objects\\Nlog.Objects.csproj": {
               "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Nlog.Objects\\Nlog.Objects.csproj"
             },
-            "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj"
+            "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thirdparty.Interfaces\\Thirdparty.Interfaces.csproj"
             }
           }
         }

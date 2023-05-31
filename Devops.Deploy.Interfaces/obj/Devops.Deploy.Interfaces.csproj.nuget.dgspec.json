@@ -30,8 +30,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
-                "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj"
+              "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thirdparty.Interfaces\\Thirdparty.Interfaces.csproj"
               }
             }
           }
@@ -65,14 +65,14 @@
         }
       }
     },
-    "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
+    "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thirdparty.Interfaces\\Thirdparty.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thirdparty.Interfaces\\Thirdparty.Interfaces.csproj",
         "projectName": "Thirdparty.Interfaces",
-        "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\Thirdparty.Interfaces.csproj",
+        "projectPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thirdparty.Interfaces\\Thirdparty.Interfaces.csproj",
         "packagesPath": "C:\\Users\\wilken.lues\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thjirdparty.Interfaces\\obj\\",
+        "outputPath": "C:\\Users\\wilken.lues\\source\\repos\\Devops.Deploy\\Thirdparty.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

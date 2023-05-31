@@ -26,11 +26,10 @@ namespace Devops.Deploy.Clients
             else
             {
                 Logger.Info($"Releases will be chopped to {NumberOfReleases}");
-                //- `Release - 1` kept because it was the most recently deployed to `Environment - 1`*/
                 ReleaseIds = ReleaseIds.Take(NumberOfReleases).ToList();
-                ReleaseIds.ForEach(releaseId => Logger.Info($"- '{releaseId}' kept because it was the most recently deployed to '{EnvironmentID}'"));
             }
-
+            //- `Release - 1` kept because it was the most recently deployed to `Environment - 1`*/
+            ReleaseIds.ForEach(releaseId => Logger.Info($"- '{releaseId}' kept because it was the most recently deployed to '{EnvironmentID}'"));
             return Deployments.Where(deployment => ReleaseIds.Contains(deployment.ReleaseId)).ToList();
         }
     }

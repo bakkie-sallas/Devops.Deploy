@@ -30,7 +30,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Devops.Deploy.Injectors\Devops.Deploy.Injectors.csproj" />
     <ProjectReference Include="..\Devops.Deploy.Interfaces\Devops.Deploy.Interfaces.csproj" />
-    <ProjectReference Include="..\Thjirdparty.Interfaces\Thirdparty.Interfaces.csproj" />
+    <ProjectReference Include="..\Thirdparty.Interfaces\Thirdparty.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
